@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -21,7 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
-        'ikm_id'
+        'ikm_id',
+        'pembeli_id'
     ];
 
     /**
@@ -51,5 +53,11 @@ class User extends Authenticatable
     public function profilIkm()
     {
         return $this->belongsTo(ProfilIkm::class, 'ikm_id');
+    }
+
+    // Relasi ke pembeli
+    public function pembeli()
+    {
+        return $this->belongsTo(Pembeli::class, 'pembeli_id');
     }
 }

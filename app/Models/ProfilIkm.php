@@ -17,6 +17,9 @@ class ProfilIkm extends Model
         'kategori_id',
         'gambar',
         'status',
+        'no_rekening',
+        'jenis_rekening',
+        'nama_rekening'
     ];
 
     public function kategori()
@@ -37,5 +40,10 @@ class ProfilIkm extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'ikm_id', 'id');
+    }
+
+    public function scopeAktif($query)
+    {
+        return $query->where('status', 'aktif');
     }
 }
