@@ -16,7 +16,10 @@ class OutletIkm extends Model
         'alamat',
         'lokasi_googlemap',
         'foto_lokasi_tampak_depan',
-        'cara_order'
+        'cara_order',
+        'provinsi',
+        'kota_kab',
+        'kecamatan'
     ];
 
     // Relasi ke profil IKM
