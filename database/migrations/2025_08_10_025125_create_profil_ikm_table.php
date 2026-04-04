@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('slug');
             $table->string('no_telp')->nullable();
             $table->string('merek');
-            $table->longText('deskripsi_singkat');
+            $table->longText('deskripsi_singkat')->nullable();
             $table->foreignId('kategori_id')->constrained('kategori')->onDelete('cascade');
             $table->string('gambar')->nullable();
-            $table->enum('status', ['aktif', 'pending', 'tidak aktif'])->default('pending');
+            $table->enum('status', ['aktif', 'pending', 'tidak_aktif'])->default('pending');
             $table->timestamps();
         });
     }

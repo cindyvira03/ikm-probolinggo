@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('lokasi_googlemap');
             $table->string('foto_lokasi_tampak_depan');
-            $table->longText('cara_order');
+            $table->longText('cara_order')->nullable();
             $table->timestamps();
         });
     }

@@ -14,29 +14,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::create([
-        //     'name' => 'Admin',
-        //     'email' => 'admin@gmail.com',
-        //     'password' => bcrypt('12345678'),
-        //     'role' => 'Admin',
-        // ]);
-
-        // // Buatkan kategori => Makanan dan Minuman, Fashion, Kerajinan
-        // Kategori::create([
-        //     'nama_kategori' => 'Makanan dan Minuman',
-        //     'slug' => 'makanan-dan-minuman',
-        // ]);
-        // Kategori::create([
-        //     'nama_kategori' => 'Fashion',
-        //     'slug' => 'fashion',
-        // ]);
-        // Kategori::create([
-        //     'nama_kategori' => 'Kerajinan',
-        //     'slug' => 'kerajinan',
-        // ]);
-
-        User::find(16)->update([
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('12345678'),
+            'role' => 'admin',
         ]);
+
+        // Buatkan kategori => Makanan dan Minuman, Fashion, Kerajinan
+        Kategori::create([
+            'nama_kategori' => 'Makanan dan Minuman',
+            'slug' => 'makanan-dan-minuman',
+        ]);
+        Kategori::create([
+            'nama_kategori' => 'Fashion',
+            'slug' => 'fashion',
+        ]);
+        Kategori::create([
+            'nama_kategori' => 'Kerajinan',
+            'slug' => 'kerajinan',
+        ]);
+
+        // User::find(16)->update([
+        //     'password' => bcrypt('12345678'),
+        // ]);
     }
 }
