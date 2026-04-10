@@ -60,7 +60,7 @@ Route::prefix('admin')
         Route::put('/profil-ikm/{id}', [ProfilIkmController::class, 'update']);
 
         Route::get('/seo', [SeoSettingController::class, 'index']);
-        Route::put('/seo', [SeoSettingController::class, 'update']);
+        Route::post('/seo', [SeoSettingController::class, 'update']);
 
         Route::get('/cms', [CmsPageController::class, 'index']);
         Route::post('/cms', [CmsPageController::class, 'update']);
