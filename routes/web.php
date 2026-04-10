@@ -12,6 +12,9 @@ use App\Http\Middleware\isUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return 'pong';
+});
 // Route::get('/', [HomeController::class, 'index'])->name('home');
 // Route::get('rumah-batik', [HomeController::class, 'rumahBatik'])->name('rumah-batik');
 // Route::get('produk-ikm', [HomeController::class, 'produkIkm'])->name('produk-ikm');
