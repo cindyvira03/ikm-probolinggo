@@ -21,7 +21,7 @@ Route::get('outlet-ikm', [HomeController::class, 'outletIkm'])->name('outlet-ikm
 Route::get('profil-ikm', [HomeController::class, 'profilIkm'])->name('profil-ikm');
 Route::get('profil-ikm/{id}', [HomeController::class, 'profilIkmDetail'])->name('profil-ikm.detail');
 
-Auth::routes();
+// Auth::routes();
 
 Route::prefix('user-area')->middleware(['auth', isUser::class])->name('user.')->group(function () {
     Route::get('/', function () {
