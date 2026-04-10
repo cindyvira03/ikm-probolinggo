@@ -19,6 +19,9 @@ use App\Http\Controllers\API\Ikm\ValidasiPembayaranController;
 use App\Http\Controllers\Api\SeoSettingController;
 use App\Http\Controllers\Api\CmsPageController;
 
+Route::get('/ping', function () {
+    return 'pong';
+});
 // AUTH
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register/ikm', [AuthController::class, 'registerIkm']);
