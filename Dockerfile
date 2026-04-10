@@ -10,10 +10,8 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     zip \
     unzip \
-    libzip-dev
-
-# Install ekstensi PHP yang dibutuhkan Laravel
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+    libzip-dev \
+    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -21,21 +19,21 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www
 
-# Copy project ke container
+# Copy project
 COPY . .
 
-# Install dependency Laravel
-RUN composer install --no-dev --optimize-autoloader
+# Install dependency TANPA menjalankan artisan dulu (INI FIX ERROR KAMU)
+RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Permission storage & cache
-RUN chmod -R 775 storage bootstrap/cache
+RUN chmod -R 777 storage bootstrap/cache
 
-# Cache config (optional tapi bagus untuk production)
-RUN php artisan config:cache
-RUN php artisan route:cache || true
+# Storage link (aman kalau tidak error)
+RUN php artisan storage:link || true
 
-# Expose port Render
+# Cache config (jalankan setelah env ready nanti)
+# jangan pakai config:cache saat build di Railway
+
 EXPOSE 10000
 
-# Jalankan Laravel server
-CMD php artisan storage:link && php artisan serve --host=0.0.0.0 --port=10000
+CMD php artisan serve --host=0.0.0.0 --port=10000

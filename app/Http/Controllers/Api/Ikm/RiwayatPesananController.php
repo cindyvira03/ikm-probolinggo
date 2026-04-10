@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API\Ikm;
+namespace App\Http\Controllers\Api\Ikm;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
