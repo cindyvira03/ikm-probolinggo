@@ -48,6 +48,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::put('profil-ikm/{id}', [ProfilIkmController::class, 'update'])->name('profil-ikm.update');
 });
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
