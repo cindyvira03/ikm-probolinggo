@@ -17,11 +17,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\API\Ikm\RiwayatPesananController;
 use App\Http\Controllers\API\Ikm\ValidasiPembayaranController;
 use App\Http\Controllers\Api\SeoSettingController;
-use App\Http\Controllers\Api\CmsPageController;
 
-Route::get('/ping', function () {
-    return 'pong';
-});
 // AUTH
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register/ikm', [AuthController::class, 'registerIkm']);
@@ -64,9 +60,6 @@ Route::prefix('admin')
 
         Route::get('/seo', [SeoSettingController::class, 'index']);
         Route::post('/seo', [SeoSettingController::class, 'update']);
-
-        Route::get('/cms', [CmsPageController::class, 'index']);
-        Route::post('/cms', [CmsPageController::class, 'update']);
     });
 
 // HALAMAN IKM
